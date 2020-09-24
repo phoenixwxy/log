@@ -1,0 +1,3 @@
+PLogErrorMask=0X3
+PLogInfoMask=0x3
+PLogCoreCfgMask=0x3
