@@ -1,0 +1,5 @@
+PLogErrorMask=0x3
+PLogInfoMask=0x3
+PLogCoreCfgMask=0x3
+DebugEnable=TRUE
+LogFileName=PLog.log

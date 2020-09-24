@@ -30,3 +30,12 @@
 *.exe
 *.out
 *.app
+
+# CMake Temp File
+build/
+
+# Binary File
+bin/
+
+# VSCode Setting
+.vscode/
