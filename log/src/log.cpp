@@ -1,5 +1,4 @@
 #include "plog.h"
-#include "log.h"
 
 struct DebugLogInfo g_logInfo =
 {
