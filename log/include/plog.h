@@ -15,7 +15,8 @@
 /// PLog is simple log system
 /// Please create PLog configuration file named "PLogSettings.txt"
 /// if you want to set Log level.
-/// 
+/// PLogErrorMask=0x3 means all goup will be enable Error Mask
+///////////////////////////////////////////////////////////////////////////////
 
 typedef UINT32 PLog ;
 static const PLog PLogDebug   = 0;  ///< Debug messages
@@ -154,7 +155,6 @@ extern Plog* g_PlogObj;
         PLOG("D", PLogDebug, "[DEBUG   ]", group, fmt, ##__VA_ARGS__)
 
 #define PLOG_ERROR(group, fmt, ...)                                             \
-    if (g_logInfo.groupEnable[PLogError] & group)                               \
         PLOG("E", PLogError, "[ERROR   ]", group, fmt, ##__VA_ARGS__)
 
 #define PLOG_CONFIG(group, fmt, ...)                                            \
