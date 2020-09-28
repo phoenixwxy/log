@@ -66,16 +66,15 @@ PResult Plog::Initialize()
     }
 
     mLogFileName = LogFileName;
-    // std::cout << mLogFileName << std::endl;
 
-    mConfigFile->open(ConfigFileName, std::ios::in);
-    if (!mConfigFile->is_open()) {
-        result = PResultEFailed;
+    mConfigFile->open(ConfigFileName, std::ios::app);
+
+    if (mConfigFile) {
+        ReadConfigFromFile();
+        result = OverrideLogConfig(mLogConfigMask);
+
+        mConfigFile->close();
     }
-
-    ReadConfigFromFile();
-
-    result = OverrideLogConfig(mLogConfigMask);
 
     // TODO record config
     // for (PLog i = 0; i < PLogMax; i++) {
@@ -89,7 +88,6 @@ PResult Plog::Initialize()
         result = PResultEFailed;
     }
 
-    mConfigFile->close();
     return result;
 }
 
@@ -147,10 +145,11 @@ PResult Plog::OverrideLogConfig(std::vector<std::string>* logConfigMask)
                 std::string logFileName = it->substr(num+1);
                 mLogFileName = logFileName;
             } else {
-                result = PResultEInvalidArg;
+                // result = PResultEInvalidArg;
             }
         } else {
-            result = PResultEInvalidArg;
+            // result = PResultEInvalidArg;
+            // use default settings
         }
     }
 
