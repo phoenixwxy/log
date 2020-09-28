@@ -83,7 +83,7 @@ PResult Plog::Initialize()
     // std::cout << "Phoenix " << g_logInfo.pDebugEnable << std::endl;
 
     g_logInfo.pDebugLogFile = new std::fstream;
-    g_logInfo.pDebugLogFile->open(mLogFileName, std::ios::out|std::ios::app);
+    g_logInfo.pDebugLogFile->open(mLogFileName, std::ios::app);
     if (!g_logInfo.pDebugLogFile->is_open()) {
         result = PResultEFailed;
     }
