@@ -13,15 +13,17 @@ int main(int argc, char const *argv[])
     std::cout << "test " << std::endl;
 
     Log::g_PlogObj->TestProcessFunc();
+    std::cout << "test1 " << Phoenix::Utils::GetProcessID() << std::endl;
+    PLOG_INFO(PLogGroupCore, "test1");
 
-    PLOG_INFO(PLogGroupCore, "test");
-    PLOG_CONFIG(PLogGroupCore, "2");
-    PLOG_CORECFG(PLogGroupCore, "3");
-    // PLOG_DEBUG(PLogGroupCore, "4");
-    // PLOG_DUMP(PLogGroupCore, "5");
-    PLOG_ERROR(PLogGroupCore, "6");
-    // PLOG_VERBOSE(PLogGroupCore, "7");
-    // PLOG_WARN(PLogGroupCore, "8");
+    // PLOG_INFO(PLogGroupCore, "test");
+    // PLOG_CONFIG(PLogGroupCore, "2");
+    // PLOG_CORECFG(PLogGroupCore, "3");
+    // // PLOG_DEBUG(PLogGroupCore, "4");
+    // // PLOG_DUMP(PLogGroupCore, "5");
+    // PLOG_ERROR(PLogGroupCore, "6");
+    // // PLOG_VERBOSE(PLogGroupCore, "7");
+    // // PLOG_WARN(PLogGroupCore, "8");
 
     Log::g_PlogObj->Destroy();
 
