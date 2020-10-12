@@ -31,7 +31,12 @@ file(GLOB SOURCES
 include_directories("${PROJECT_SOURCE_DIR}/log/include")
 include_directories("${PROJECT_SOURCE_DIR}/log/utils")
 
-add_library(log ${SOURCES})
+# add_library(log ${SOURCES})
+# add_library(log SHARED STATIC ${SOURCES})
+add_library(${PROJECT_NAME} SHARED ${SOURCES})
+set(ORIGINAL_STATIC_LIB_NAME ${PROJECT_NAME}-static)
+add_library(${ORIGINAL_STATIC_LIB_NAME} STATIC ${SOURCES})
+set_target_properties(${ORIGINAL_STATIC_LIB_NAME} PROPERTIES OUTPUT_NAME ${PROJECT_NAME})
 
 # file(COPY ${PROJECT_SOURCE_DIR}/log/config/PLogSettings.txt DESTINATION ${PROJECT_SOURCE_DIR}/bin)
 
